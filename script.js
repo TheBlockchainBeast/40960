@@ -1,3 +1,15 @@
+// Disable console
+function disableConsole() {
+    window.console.log = function () { };
+    window.console.info = function () { };
+    window.console.warn = function () { };
+    window.console.error = function () { };
+    window.console.debug = function () { };
+}
+
+// Prevent right-click context menu
+document.addEventListener('contextmenu', (e) => e.preventDefault());
+
 // Matrix background effect
 function createMatrixBackground() {
     const canvas = document.createElement('canvas');
@@ -47,6 +59,7 @@ function typeWriter(text, element, speed = 50) {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
+    disableConsole();
     createMatrixBackground();
 
     const mainText = document.getElementById('mainText');
